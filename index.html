@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Directory Listing</title>
+</head>
+<body>
+<div id="navigation"></div>
+<div id="listing"></div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var S3BL_IGNORE_PATH = true;
+    var BUCKET_URL = '${bucket_url}';  //https://bucket_name.s3.amazonaws.com';
+    var BUCKET_WEBSITE_URL = '${bucket_website_url}';
+    var S3B_ROOT_DIR = '${root_dir}';
+    var EXCLUDE_FILE = 'index.html';  // change to array to exclude multiple files
+    var AUTO_TITLE = true;
+    var S3_REGION = '${aws_region}';
+</script>
+<script type="text/javascript" src="${bucket_website_url}/list.js"></script>
+</body>
+</html>
