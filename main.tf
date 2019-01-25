@@ -52,6 +52,7 @@ resource "aws_s3_bucket_object" "debian_index" {
   acl          = "public-read"
   content_type = "text/html;charset=UTF-8"
   content      = "${data.template_file.debian_index.rendered}"
+  depends_on   = ["module.staticsite"]
 }
 
 data "template_file" "ubuntu_index" {
@@ -71,6 +72,7 @@ resource "aws_s3_bucket_object" "ubuntu_index" {
   acl          = "public-read"
   content_type = "text/html;charset=UTF-8"
   content      = "${data.template_file.ubuntu_index.rendered}"
+  depends_on   = ["module.staticsite"]
 }
 
 resource "aws_s3_bucket_object" "listjs" {
@@ -79,6 +81,7 @@ resource "aws_s3_bucket_object" "listjs" {
   acl          = "public-read"
   content_type = "application/javascript"
   source       = "${path.module}/list.js"
+  depends_on   = ["module.staticsite"]
 }
 
 // Create DNS CNAME record on Cloudflare
